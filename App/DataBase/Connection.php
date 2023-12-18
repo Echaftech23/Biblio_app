@@ -1,5 +1,5 @@
 <?php
-    namespace MyApp\DataBase;
+    namespace MyApp\App\DataBase;
     use PDO, PDOException, Exception;
 
     require __DIR__ . '/../../vendor/autoload.php';

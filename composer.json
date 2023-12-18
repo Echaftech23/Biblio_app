@@ -4,7 +4,8 @@
     },
     "autoload": {
         "psr-4": {
-            "MyApp\\": "App/"
+            "MyApp\\": "Biblio_app/"
+            
         }
     }
 }

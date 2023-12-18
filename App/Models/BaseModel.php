@@ -1,8 +1,8 @@
 <?php
-    namespace MyApp\Models;
+    namespace MyApp\App\Models;
 
-    use MyApp\DataBase\Connection;
-    use MyApp\Classes\Base;
+    use MyApp\App\DataBase\Connection;
+    use MyApp\App\Classes\Base;
     use PDO;
 
     class BaseModel extends Base

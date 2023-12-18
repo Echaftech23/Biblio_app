@@ -1,5 +1,5 @@
 <?php
-    namespace MyApp\Classes;
+    namespace MyApp\App\Classes;
 
     class Base
     {
