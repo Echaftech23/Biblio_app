@@ -5,6 +5,10 @@
         <input type="text" name="username" placeholder="Username" />
     </div>
     <div class="input-field">
+        <i class="fas fa-envelope"></i>
+        <input type="email" name="Email" placeholder="Email" />
+    </div>
+    <div class="input-field">
         <i class="fas fa-lock"></i>
         <input type="password" name="password" placeholder="Password" />
     </div>
