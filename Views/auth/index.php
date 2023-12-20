@@ -1,8 +1,9 @@
 <!-- end of body -->
+<?php
+include("../../includes/header.php");
+?>
 
-<?php include("../../includes/header.php"); ?>
-
-<div class="container">
+<div class="container <?php echo $signUpMode ? 'sign-up-mode' : ''; ?> ">
   <div class="forms-container">
     <div class="signin-signup">
 

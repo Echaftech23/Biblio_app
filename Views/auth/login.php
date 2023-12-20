@@ -1,4 +1,4 @@
-<form action="#" class="sign-in-form">
+<form action="../../App/Controllers/auth/UserController.php" method="post" class="sign-in-form" id="#login-form">
     <h2 class="title">Sign in</h2>
     <div class="input-field">
         <i class="fas fa-user"></i>
@@ -6,7 +6,7 @@
     </div>
     <div class="input-field">
         <i class="fas fa-envelope"></i>
-        <input type="email" name="Email" placeholder="Email" />
+        <input type="email" name="email" placeholder="Email" />
     </div>
     <div class="input-field">
         <i class="fas fa-lock"></i>
