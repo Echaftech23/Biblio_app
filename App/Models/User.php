@@ -50,7 +50,22 @@
                                                WHERE email = :email");
             $stmt->bindParam(":email", $this->email);
             $stmt->execute();
-            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $results = $stmt->fetch(PDO::FETCH_ASSOC);
             return $results;
+        }
+
+        public function deleteUser()
+        {
+            $stmt = $this->connexion->prepare("DELETE FROM users WHERE email = :email");
+            $stmt->bindParam(":email", $this->email);
+            $stmt->execute();
+
+            $rowCount = $stmt->rowCount();
+
+            if ($rowCount > 0) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }

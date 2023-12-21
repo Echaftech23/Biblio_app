@@ -48,7 +48,7 @@
                     
                     if ($row['role'] === "admin") {
                         $_SESSION['isAdmin'] = true;
-                        header('Location: ../../../Views/dashboard.php');
+                        header('Location: ../../../Views/admin/dashboard.php');
                     } else {
                         header('Location: ../../../Views/index.php');
                     }
@@ -98,5 +98,5 @@
 
     if (isset($_GET['logout'])) {
         $userLogout = new UserController();
-        // $userLogout->logout();
+        $userLogout->logout();
     }
