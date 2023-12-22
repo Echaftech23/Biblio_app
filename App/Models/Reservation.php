@@ -20,16 +20,14 @@ class Reservation extends ReservationBase
     public function createReservation()
     {
         try {
-            $this->connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $sql = "INSERT INTO `reservations`(`reservation_date`, `return_date`, `user_id`, `book_id`) VALUES(:reservationDate, :returnDate, :userId, :bookId)";
             $stmt = $this->connexion->prepare($sql);
 
-            $stmt->bindParam(":reservationDate", $this->reservationDate, PDO::PARAM_STR);
-            $stmt->bindParam(":returnDate", $this->returnDate, PDO::PARAM_STR);
-            $stmt->bindParam(":userId", $this->userId, PDO::PARAM_INT);
-            $stmt->bindParam(":bookId", $this->bookId, PDO::PARAM_INT);
-
+            $stmt->bindParam(":reservationDate", $this->reservationDate);
+            $stmt->bindParam(":returnDate", $this->returnDate);
+            $stmt->bindParam(":userId", $this->userId);
+            $stmt->bindParam(":bookId", $this->bookId);
             $stmt->execute();
 
             $reservationId = $this->connexion->lastInsertId();
@@ -40,15 +38,15 @@ class Reservation extends ReservationBase
         }
     }
 
-    public function isReservationDuplicate()
-    {
-        $stmt = $this->connexion->prepare("SELECT * FROM reservations WHERE user_id = :userId AND book_id = :bookId");
-        $stmt->bindParam(":userId", $this->userId);
-        $stmt->bindParam(":bookId", $this->bookId);
-        $stmt->execute();
+    // public function reservationExists()
+    // {
+    //     $stmt = $this->connexion->prepare("SELECT * FROM reservations WHERE user_id = :userId AND book_id = :bookId");
+    //     $stmt->bindParam(":userId", $this->userId);
+    //     $stmt->bindParam(":bookId", $this->bookId);
+    //     $stmt->execute();
 
-        return $stmt->fetchColumn() > 0;
-    }
+    //     return $stmt->fetchColumn() > 0;
+    // }
 
     public function selectAllReservations()
     {
@@ -58,7 +56,27 @@ class Reservation extends ReservationBase
         return $result;
     }
 
-    public function deleteReservation($id)
+    public function updateReservation($id)
+    {
+        try {
+
+            $sql = "UPDATE `reservations` SET `reservation_date` = :reservationDate, `return_date` = :returnDate WHERE `id` = :id";
+            $stmt = $this->connexion->prepare($sql);
+
+            $stmt->bindParam(":reservationDate", $this->reservationDate);
+            $stmt->bindParam(":returnDate", $this->returnDate);
+            $stmt->bindParam(":id", $id);
+
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return false;
+        }
+    }
+      
+
+    public function cancelReservation($id)
     {
         $stmt = $this->connexion->prepare("DELETE FROM reservations WHERE id = :id");
         $stmt->bindParam(":id", $id);

@@ -2,7 +2,7 @@
 
 namespace App\Controllers\admin;
 
-use App\Models\Reservation;
+use App\Models\Reservation, PDOException;
 
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
@@ -22,6 +22,18 @@ class ReservationController
         }
     }
 
+    public function updateReservation($id)
+    {
+        try {
+            $reservation = new Reservation(null, null, null, null);
+            $result = $reservation->updateReservation($id);
+
+            echo '<script>alert("Reservation Updated Successfully");</script>';
+            header('Location: addReservation.php');
+        } catch (PDOException $e) {
+            echo '<script>alert("Error updating reservation or reservation does not exist");</script>';
+        }
+    }
 
     public function showReservations()
     {
@@ -30,17 +42,21 @@ class ReservationController
         return $result;
     }
 
-    public function deleteReservation($id)
+    public function cancelReservation($id)
     {
-        $reservation = new Reservation(null, null, null, null);
-        $result = $reservation->deleteReservation($id);
+        try {
+            $reservation = new Reservation(null, null, null, null);
+            $result = $reservation->cancelReservation($id);
 
-        if (!$result) {
-            echo '<script>alert("Reservation Deleted Successfully");</script>';
-            header('Location: addReservation.php');
-        } else {
-            echo '<script>alert("Something went wrong");</script>';
-            header('Location:addReservation.php');
+            if (!$result) {
+                echo '<script>alert("Reservation canceled Successfully");</script>';
+                header('Location: addReservation.php');
+            } else {
+                echo '<script>alert("Something went wrong");</script>';
+                header('Location:addReservation.php');
+            }
+        } catch (PDOException $e) {
+            echo '<script>alert("Error canceling your reservation");</script>';
         }
     }
 }

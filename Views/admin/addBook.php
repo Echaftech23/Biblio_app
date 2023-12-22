@@ -172,7 +172,7 @@
                                             <td><?= $book["total_copies"]; ?></td>
                                             <td><?= $book["available_copies"]; ?></td>
                                             <td class="table-actions d-flex">
-                                                <a href="edit.php?id=<?php echo $book["id"]; ?>" class="btn btn-primary btn-sm ">Edit</a>
+                                                <a href="edit.php?book_id=<?php echo $book["id"]; ?>" class="btn btn-primary btn-sm ">Edit</a>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-danger btn-sm ml-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                                     Delete
@@ -199,7 +199,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <a href="delete.php?id=<?php echo $book["id"]; ?>" class="btn btn-primary">Delete</a>
+                                        <a href="delete.php?book_id=<?php echo $book["id"]; ?>" class="btn btn-primary">Delete</a>
                                     </div>
                                 </div>
                             </div>
