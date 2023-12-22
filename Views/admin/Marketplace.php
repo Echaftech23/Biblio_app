@@ -1,6 +1,7 @@
     <?php
 
     session_start();
+
     use App\controllers\admin\BookController; ?>
     <?php require_once "../../app/controllers/admin/BookController.php"; ?>
     <?php $bookController = new BookController(); ?>
@@ -127,7 +128,8 @@
                                                             </h1>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
-                                                        <div class="modal-body">                                                            
+                                                        
+                                                        <div class="modal-body">
                                                             <form action="../../app/controllers/admin/ReservationController.php" method="post">
 
                                                                 <input type="hidden" class="form-control" name="book_id" value="<?php echo $book["id"]; ?>">
@@ -138,7 +140,7 @@
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="return_date">Return Date:</label>
-                                                                    <input type="date" class="form-control" id="return_date" name="return_date">
+                                                                    <input type="date" class="form-control" id="return_date" name="return_date" min="<?= date('d/m/Y') ?>" max="<?= date('Y-m-d', strtotime('+8 days')); ?>">
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

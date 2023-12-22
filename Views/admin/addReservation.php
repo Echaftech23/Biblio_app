@@ -88,7 +88,7 @@
                                     <ul class="navbar-nav">
                                         <!-- Button trigger modal -->
                                         <button type="button" class="btn bg-primary text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            Add Book
+                                            Add Reservation
                                         </button>
                                     </ul>
                                 </div>
@@ -172,11 +172,30 @@
                                             <td class="table-actions d-flex">
                                                 <a href="edit.php?reservation_id=<?php echo $reservation["id"]; ?>" class="btn btn-primary btn-sm ">Edit</a>
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-danger btn-sm ml-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                <button type="button" class="btn btn-danger btn-sm ml-1 btn btn-primary" data-bs-toggle="modal" data-bs-target="#<?= $reservation["id"]; ?>">
                                                     Delete
                                                 </button>
                                             </td>
                                         </tr>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="<?= $reservation["id"]; ?>" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Are sure you want to delete this book
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                        <a href="delete.php?reservation_id=<?php echo $reservation["id"]; ?>" class="btn btn-primary">Delete</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -184,24 +203,7 @@
 
 
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Confirm</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Are sure you want to delete this book
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <a href="delete.php?reservation_id=<?php echo $reservation["id"]; ?>" class="btn btn-primary">Delete</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

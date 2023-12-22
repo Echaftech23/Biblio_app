@@ -35,6 +35,15 @@ class BookController
         return $result;
     }
 
+    public function filterBook($booktitle)
+    {
+        $book = new Book(null, null, null, null, null, null, null);
+        $books = $book->filterBook($booktitle);
+
+        header('Content-Type: application/json');
+        echo json_encode($books);
+    }
+
     public function deleteBook($id)
     {
 

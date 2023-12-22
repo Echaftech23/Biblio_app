@@ -56,6 +56,17 @@ class Book extends BookBase
         return $result;
     }
 
+    public function filterBook($booktitle){
+        $booktitle = '%' . $booktitle . '%';
+
+        $stmt = $this->connexion->prepare("SELECT * FROM books WHERE title LIKE :title");
+        $stmt->bindParam(":title", $booktitle);
+        $stmt->execute();
+        $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $books;
+    }
+
     public function deleteBook($id)
     {
         $stmt = $this->connexion->prepare("DELETE FROM books WHERE id = :id");

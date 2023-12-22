@@ -43,55 +43,42 @@
             </li>
         </div>
 
-        <li class="" id="active-item">
-            <a href="addBook.php" class="dashboard">
-                <i class="material-icons">apps</i><span>Books</span>
-            </a>
-        </li>
-
-        <li class="" id="active-item">
-            <a href="#homeSubmenu1" class="dashboard">
-                <i class="material-icons">aspect_ratio</i><span>Reservations</span>
-            </a>
-        </li>
-
         <li class="dropdown" id="active-item">
-            <a href="#pageSubmenu3" class="dashboard">
-                <i class="material-icons">equalizer</i><span>chart</span></a>
+            <a href="Marketplace.php" class="dashboard">
+                <i class="material-icons">equalizer</i><span>Market Place</span></a>
         </li>
+
         <li class="dropdown">
             <a href="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="material-icons">extension</i><span>ui element</span></a>
+                <i class="material-icons">apps</i><span>Books</span></a>
             <ul class="collapse list-unstyled menu" id="pageSubmenu4">
                 <li>
-                    <a href="#">Page 1</a>
+                    <a href="addBook.php">show Books</a>
                 </li>
                 <li>
-                    <a href="#">Page 2</a>
+                    <a href="addBook.php">Delete Books</a>
                 </li>
                 <li>
-                    <a href="#">Page 3</a>
+                    <a href="addBook.php">Update Books</a>
                 </li>
             </ul>
         </li>
 
         <li class="dropdown">
             <a href="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="material-icons">border_color</i><span>forms</span></a>
+                <i class="material-icons">aspect_ratio</i><span>Reservations</span></a>
             <ul class="collapse list-unstyled menu" id="pageSubmenu5">
                 <li>
-                    <a href="#">Page 1</a>
+                    <a href="addReservation.php">Add Reservation</a>
                 </li>
                 <li>
-                    <a href="#">Page 2</a>
+                    <a href="addReservation.php">Update Reservation</a>
                 </li>
                 <li>
-                    <a href="#">Page 3</a>
+                    <a href="addReservation.php">Delete Reservation</a>
                 </li>
             </ul>
         </li>
-
-
 
         <li class="dropdown">
             <a href="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -109,22 +96,9 @@
             </ul>
         </li>
 
-
-        <li class="dropdown">
-            <a href="#pageSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                <i class="material-icons">content_copy</i><span>Pages</span></a>
-            <ul class="collapse list-unstyled menu" id="pageSubmenu7">
-                <li>
-                    <a href="#">Page 1</a>
-                </li>
-                <li>
-                    <a href="#">Page 2</a>
-                </li>
-                <li>
-                    <a href="#">Page 3</a>
-                </li>
-            </ul>
+        <li class="dropdown" id="active-item">
+            <a href="#pageSubmenu3" class="dashboard">
+                <i class="material-icons">equalizer</i><span>chart</span></a>
         </li>
     </ul>
 </nav>
-
