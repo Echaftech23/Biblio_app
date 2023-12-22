@@ -1,5 +1,6 @@
     <?php
 
+    session_start();
     use App\controllers\admin\BookController; ?>
     <?php require_once "../../app/controllers/admin/BookController.php"; ?>
     <?php $bookController = new BookController(); ?>
@@ -117,7 +118,7 @@
                                             </td>
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="<?php echo $book["id"]; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade m-auto   col-3" id="<?php echo $book["id"]; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -126,20 +127,18 @@
                                                             </h1>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
-                                                        <div class="modal-body">
+                                                        <div class="modal-body">                                                            
+                                                            <form action="../../app/controllers/admin/ReservationController.php" method="post">
 
-                                                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                                                                <input type="hidden" class="form-control" name="book_id" value="<?php echo $book["id"]; ?>">
+                                                                <input type="hidden" class="form-control" name="user_id" value="<?php echo $_SESSION['auth_user']["id"]; ?>">
                                                                 <div class="form-group">
-                                                                    <label for="author">Author:</label>
-                                                                    <input type="text" class="form-control" id="author" name="author" value="<?php echo $book["id"]; ?>" required>
+                                                                    <label for="reservation_date">Reservation Date:</label>
+                                                                    <input type="text" class="form-control" id="reservation_date" value="<?php echo date('d/m/Y'); ?>" disabled>
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label for="genre">Description:</label>
-                                                                    <input type="text" class="form-control" id="Description" name="description" required>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="pubYear">Publication Year:</label>
-                                                                    <input type="text" class="form-control" id="pubYear" name="publication_year" required>
+                                                                    <label for="return_date">Return Date:</label>
+                                                                    <input type="date" class="form-control" id="return_date" name="return_date">
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

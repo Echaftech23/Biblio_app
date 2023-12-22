@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     use App\Models\User;
     require_once '../../../vendor/autoload.php';
 
@@ -41,7 +41,8 @@
                     $_SESSION['auth'] = true;
                     $_SESSION['auth_user'] = [
                         'username' => $row['username'],
-                        'email' => $row['email']
+                        'email' => $row['email'],
+                        'id' => $row['id']
                     ];
 
                     $_SESSION['message'] = "Logged In Successfully"; 

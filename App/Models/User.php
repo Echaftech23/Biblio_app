@@ -44,7 +44,7 @@
         }
         public function selectUser()
         {
-            $stmt = $this->connexion->prepare("SELECT username, email, password, role FROM users
+            $stmt = $this->connexion->prepare("SELECT users.id, username, email, password, roles.role FROM users
                                                JOIN users_roles  ON users.id = users_roles.user_id 
                                                JOIN roles ON  users_roles.role_id = roles.id
                                                WHERE email = :email");
