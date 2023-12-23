@@ -16,9 +16,8 @@ class ReservationController
 
         if ($reservationId !== false) {
             echo '<script>alert("Reservation added Successfully");</script>';
-            header('Location: ../../../Views/admin/addReservation.php');
         } else {
-            echo "Something went wrong";
+            echo '<script>alert("Something went wrong");</script>';
         }
     }
 
@@ -62,8 +61,8 @@ class ReservationController
 }
 
 if (isset($_POST['save'])) {
-    $userLogin = new ReservationController();
-    $userLogin->createReservation(
+    $reservation = new ReservationController();
+    $reservation->createReservation(
                                 date('Y/m/d'), $_POST['return_date'],
                                 $_POST['user_id'], $_POST['book_id']);    
 }

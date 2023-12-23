@@ -1,5 +1,5 @@
 <!-- Sidebar  -->
-<nav id="sidebar">
+<nav id="sidebar" style="position: fixed !important;" >
     <div class="sidebar-header">
         <h3><img src="../../Public/img/logo.png" class="img-fluid" /><span>YouBook</span></h3>
     </div>

@@ -22,7 +22,7 @@
                         <span class="material-icons">arrow_back_ios</span>
                     </button>
 
-                    <a class="navbar-brand" href="#"> Books </a>
+                    <a class="navbar-brand" href="#"> Resravations </a>
 
                     <button class="d-inline-block d-lg-none ml-auto more-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="material-icons">more_vert</span>
@@ -97,11 +97,11 @@
 
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog" style="width: 300px;">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">
-                                            Book Information Form
+                                        <h1 class="modal-title fs-6" id="exampleModalLabel">
+                                            Reservation Info Form
                                         </h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
@@ -109,36 +109,24 @@
 
                                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                                             <div class="form-group">
-                                                <label for="title">Title:</label>
-                                                <input type="text" class="form-control" id="title" name="title" required>
+                                                <label for="genre">User ID:</label>
+                                                <input type="number" class="form-control" name="user_id" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="author">Author:</label>
-                                                <input type="text" class="form-control" id="author" name="author" required>
+                                                <label for="genre">Book ID:</label>
+                                                <input type="number" class="form-control" name="book_id" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="genre">Genre:</label>
-                                                <input type="text" class="form-control" id="genre" name="genre" required>
+                                                <label for="reservation_date">Reservation Date:</label>
+                                                <input type="text" class="form-control" id="reservation_date" value="<?php echo date('d/m/Y'); ?>" disabled>
                                             </div>
                                             <div class="form-group">
-                                                <label for="genre">Description:</label>
-                                                <input type="text" class="form-control" id="Description" name="description" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="pubYear">Publication Year:</label>
-                                                <input type="text" class="form-control" id="pubYear" name="publication_year" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="totCopies">Total Copies:</label>
-                                                <input type="number" class="form-control" id="totCopies" name="total_copies" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="availCopies">Available Copies:</label>
-                                                <input type="number" class="form-control" id="availCopies" name="available_copies" required>
+                                                <label for="return_date">Return Date:</label>
+                                                <input type="date" class="form-control" id="return_date" name="return_date" min="<?= $currentDate = date('Y-m-d'); ?>" max="<?= date('Y-m-d', strtotime('+8 days')); ?>" required>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" name="save" class="btn btn-primary">Save changes</button>
+                                                <button type="submit" name="add" class="btn btn-primary">Save changes</button>
                                             </div>
                                         </form>
                                     </div>
@@ -200,10 +188,6 @@
                                 </tbody>
                             </table>
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>
